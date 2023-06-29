@@ -22,96 +22,36 @@
                 <input type="text" placeholder="Pesquisar Equipes">
                 <box-icon name='search'></box-icon>
             </div>
-            
-        
         
         </header>
         
         
         <main>
             <section id="equipes">
-                <h3>
-                    Equipes
-                    <button>
+                <h3>Equipes
+                    <button id="btnCriarEquipe">
                         <box-icon name='plus'></box-icon> Criar Equipe
                     </button>
                 </h3>
-                <ul>
-                    <li>
-                        <h4>Nome da Equipe</h4>
-                        <div>
-                            <h2>01</h2>
-                            <button>
-                                <box-icon name='plus'></box-icon> Add
-                            </button>
-                        </div>
-                    </li>
-                    <li>
-                        <h4>Nome da Equipe</h4>
-                        <div>
-                            <h2>02</h2>
-                            <button>
-                                <box-icon name='plus'></box-icon> Add
-                            </button>
-                        </div>
-                    </li>
-                    <li>
-                        <h4>Nome da Equipe</h4>
-                        <div>
-                            <h2>03</h2>
-                            <button>
-                                <box-icon name='plus'></box-icon> Add
-                            </button>
-                        </div>
-                    </li>
-                    <li>
-                        <h4>Nome da Equipe</h4>
-                        <div>
-                            <h2>04</h2>
-                            <button>
-                                <box-icon name='plus'></box-icon> Add
-                            </button>
-                        </div>
-                    </li>
-                    <li>
-                        <h4>Nome da Equipe</h4>
-                        <div>
-                            <h2>05</h2>
-                            <button>
-                                <box-icon name='plus'></box-icon> Add
-                            </button>
-                        </div>
-                    </li>
-                    <li>
-                        <h4>Nome da Equipe</h4>
-                        <div>
-                            <h2>06</h2>
-                            <button>
-                                <box-icon name='plus'></box-icon> Add
-                            </button>
-                        </div>
-                    </li>
-                    <li>
-                        <h4>Nome da Equipe</h4>
-                        <div>
-                            <h2>07</h2>
-                            <button>
-                                <box-icon name='plus'></box-icon> Add
-                            </button>
-                        </div>
-                    </li>
-                    <li>
-                        <h4>Nome da Equipe</h4>
-                        <div>
-                            <h2>08</h2>
-                            <button>
-                                <box-icon name='plus'></box-icon> Add
-                            </button>
-                        </div>
-                    </li>
+                <ul id="listaDeEquipes">
+
                 </ul>
             </section>
         </main>
+        
+        
+        <div id="overlay"></div>
+        
+        <div id="modal">
+            <form onsubmit="criarEquipe()">
+                <h3>Criar equipe <box-icon id="FecharForm" name='x'></box-icon></h3>
+                <label for="equipe-nome">Nome</label>
+                <input type="text" id="equipe-nome" placeholder="Digite um nome" required>
+                <label for="equipe-qtd">N de participantes</label>
+                <input type="number" id="equipe-qtd" min="1" required>
+                <button type="submit">Criar</button>
+            </form>
+        </div>
         
         <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
         <script src="js/scripts.js"></script>
