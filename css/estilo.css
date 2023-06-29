@@ -83,6 +83,7 @@ header .busca box-icon {
     transition: all 300ms;
 }
 
+
 header .busca box-icon:hover {
     fill: var(--pink);
 }
