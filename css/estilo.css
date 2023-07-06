@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
-* {
+*{
     margin: 0;
     padding: 0;
     border: 0;
@@ -12,66 +11,59 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-::-webkit-scrollbar {
+::-webkit-scrollbar{
     width: 8px;
     background-color: var(--gray0);
 }
-
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb{
     border-radius: 3px;
     background-color: var(--pink);
 }
 
-
-:root {
-    --gray0:#111111;
-    --gray1:#282828;
-    --gray2:#343434;
-    --gray3:#404040;
-    --gray4:#505050;
-    --pink:#C61067;
-    --light:#FFFFFF;
+:root{
+    --gray0: #111111;
+    --gray1: #282828;
+    --gray2: #343434;
+    --gray3: #404040;
+    --gray4: #555555;
+    --pink: #C61067;
+    --light: #FFFFFF;
 }
 
-body {
+body{
     width: 100%;
     height: 100vh;
-    background-color:var(--gray1);
+    background-color: var(--gray1);
 }
 
-header {
+header{
     width: 100%;
     display: flex;
-    gap: 26px;
-    padding: 10px 100px;
     align-items: center;
+    gap: 26px;
+    padding: 16px 100px;
 }
-
-header .logo img {
+header .logo img{
     display: block;
     height: 50px;
 }
-
-header .busca {
+header .busca{
     width: 500px;
-    position: relative; 
+    position: relative;
 }
-
-header .busca input {
+header .busca input{
     width: 100%;
     height: 50px;
     background-color: var(--gray2);
     border-radius: 8px;
     padding-left: 16px;
     border: 3px solid var(--gray3);
-    transition: all 300ms;
+    transition-duration: 300ms;
 }
-
-header .busca input:focus {
+header .busca input:focus{
     border-color: var(--pink);
 }
-
-header .busca box-icon {
+header .busca box-icon{
     width: 40px;
     height: 40px;
     padding: 8px;
@@ -80,78 +72,73 @@ header .busca box-icon {
     right: 4px;
     fill: var(--light);
     cursor: pointer;
-    transition: all 300ms;
+    transition-duration: 300ms;
 }
-
-
-header .busca box-icon:hover {
+header .busca box-icon:hover{
     fill: var(--pink);
 }
 
-#equipes {
-    padding: 16px 100px;
-    margin-top: 60px;
+#equipes{
+    padding: 0 100px;
+    margin-top: 60px
 }
-
-#equipes h3 {
+#equipes h3{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
-#equipes button {
+#equipes h3 button{
     display: flex;
     align-items: center;
     gap: 10px;
     background-color: transparent;
     border-radius: 5px;
-    border: px solid var(--pink);
+    border: 1px solid var(--pink);
     padding: 10px 16px;
     text-transform: uppercase;
     font-size: 12px;
     letter-spacing: 1px;
     font-weight: bold;
     cursor: pointer;
-    transition: all 300ms;
+    transition-duration: 300ms;
 }
-
-#equipes button:hover {
+#equipes h3 button:hover{
     background-color: var(--pink);
 }
-
-#equipes button box-icon {
+#equipes h3 button box-icon{
     fill: var(--light);
 }
 
-#equipes ul {
+#equipes ul{
     margin-top: 26px;
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
 }
-
-#equipes ul li {
-    width: calc(25% - 12px);
+#equipes ul li{
+    width: calc(20% - 13px);
     background-color: var(--gray2);
     padding: 16px;
     border-radius: 8px;
 }
-
-#equipes ul li h4 {
+#equipes ul li.sem-equipes{
+    width: 100%;
+    text-align: center;
+    color: #999999;
+}
+#equipes ul li h4{
     text-align: center;
     opacity: .7;
 }
-
-#equipes ul li div {
+#equipes ul li div{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     margin-top: 16px;
     gap: 26px;
-    flex-direction: column;
 }
-
-#equipes ul li div h2 {
+#equipes ul li div h2{
     width: 120px;
     height: 120px;
     border-radius: 100%;
@@ -162,39 +149,44 @@ header .busca box-icon:hover {
     flex-direction: column;
     margin-top: 26px;
     margin-bottom: 16px;
-}
 
-#equipes ul li div h2 span {
+    opacity: .3;
+    font-size: 50px;
+    font-weight: normal;
+    text-align: center;
+}
+#equipes ul li div h2 span{
     font-size: 14px;
     display: block;
     font-weight: bold;
 }
- 
-#equipes ul li div button {
+#equipes ul li div .acoes{
     display: flex;
-    align-items: center;
+    flex-direction: row;
     gap: 10px;
+    width: 100%;
+}
+#equipes ul li div button{
+    min-height: 40px;
+    flex: 1;
     background-color: transparent;
     border-radius: 5px;
     border: 1px solid var(--pink);
-    padding: 0 10px;
+    padding: 5px 10px;
     text-transform: uppercase;
     font-size: 12px;
     letter-spacing: 1px;
     font-weight: bold;
     cursor: pointer;
-    transition: all 300ms;
+    transition-duration: 300ms;
 }
-
-#equipes ul li div button:hover {
+#equipes ul li div button:hover{
     background-color: var(--pink);
 }
-
-#equipes ul li div button box-icon {
+#equipes ul li div button box-icon{
     fill: var(--light);
 }
-
-#overlay {
+#overlay{
     width: 100%;
     height: 100%;
     background-color: var(--gray0);
@@ -205,63 +197,63 @@ header .busca box-icon:hover {
     left: 0;
     transition-duration: 200ms;
 }
-
-#overlay.active {
+#overlay.active{
     opacity: .8;
     visibility: visible;
 }
-
-#modal {
+#modal, #modal2{
     width: 400px;
     padding: 26px;
-    background-color: var(--gray3);
+    background-color: var(--gray1);
     border-radius: 10px;
     position: absolute;
-    top: 50%;
-    left: calc(50% - 200px);
-    transform: translateY(-50%);
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     transition: 200ms;
+    transition-delay: 200ms;
     opacity: 0;
-    visibility: hidden;    
+    visibility: hidden;
 }
-
-#modal.active {
+#modal.active,
+#modal2.active{
     opacity: 1;
     visibility: visible;
     top: 50%;
 }
-
-#modal h3 {
+#modal form h3,
+#modal2 form h3{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 16px;
 }
-
-#modal h3 box-icon {
-    cursor: pointer;
+#modal form h3 box-icon,
+#modal2 form h3 box-icon{
     fill: var(--light);
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
     padding: 8px;
-    transition: all .2s;
     background-color: var(--gray2);
+    cursor: pointer;
+    transition-duration: 200ms;
 }
-
-#modal h3 box-icon:hover {
-    fill: var(--pink);
+#modal form h3 box-icon:hover,
+#modal2 form h3 box-icon:hover{
+    background-color: var(--pink);
 }
-
-#modal form label {
+#modal form label,
+#modal2 form label{
     display: block;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: bold;
+    text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 16px;
+    margin-bottom: 6px;
 }
-
-#modal form input {
+#modal form input,
+#modal2 form input{
     width: 100%;
     height: 50px;
     background-color: var(--gray2);
@@ -269,14 +261,14 @@ header .busca box-icon:hover {
     padding-left: 16px;
     border: 3px solid var(--gray3);
     transition-duration: 300ms;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
 }
-
-#modal form input:focus {
+#modal form input:focus,
+#modal2 form input:focus{
     border-color: var(--pink);
 }
-
-#modal form button {
+#modal form button,
+#modal2 form button{
     width: 100%;
     height: 50px;
     background-color: transparent;
@@ -290,20 +282,32 @@ header .busca box-icon:hover {
     cursor: pointer;
     transition-duration: 300ms;
 }
+#modal form button:hover,
+#modal2 form button:hover{
+    background-color: var(--pink);
+}
 
-@media only screen and ( max-width: 600px ) {
-   header {
-       padding: 16px;
-       flex-direction: column;
-   }
-   header .busca {
-       width: 100%; 
+
+
+/*RESPONSIVO DO TABLET*/
+@media only screen and ( max-width: 768px ){
+
 }
-   #equipes {
-       padding: 16px;
-       margin-top: 0;
-}
-   #equipes ul li {
-       width: 100%;
-   }
+
+/*RESPONSIVO DO SMARTPHONE*/
+@media only screen and ( max-width: 600px ){
+    header{
+        padding: 16px;
+        flex-direction: column;
+    }
+    header .busca{
+        width: 100%;
+    }
+    #equipes{
+        padding: 16px;
+        margin-top: 0;
+    }
+    #equipes ul li{
+        width: 100%;
+    }
 }

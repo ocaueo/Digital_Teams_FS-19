@@ -3,51 +3,114 @@ btnCriarEquipe.onclick = function(){
     modal.classList.add('active');
 }
 
-overlay.onclick = function(){
-    overlay.classList.remove('active');
-    modal.classList.remove('active');
+function modalAdicionar(posicao){
+    overlay.classList.add('active');
+    modal2.classList.add('active');
+    equipeId.value = posicao;
 }
 
-FecharForm.onclick = function(){
+let fecharForm = document.querySelectorAll('.fecharForm');
+for(let i = 0; i < fecharForm.length; i++){
     overlay.classList.remove('active');
     modal.classList.remove('active');
+    modal2.classList.remove('active');
 }
 
-let equipes = [];
+let equipes = JSON.parse(localStorage.getItem('equipes')) || [];
 
-listarEquipes()
-
-function listarEquipes() {
+function listarEquipes(){
     listaDeEquipes.innerHTML = '';
-    for(let i = 0; i < equipes.length;i++){
-    listaDeEquipes.innerHTML += `
-       <li>
-       <h4>${equipes[i].nome}</h4>
-       <div>
-           <h2>${equipes[i].participantes} <span> / ${equipes[i].qtdMax}</span></h2>
-           <button>
-               <box-icon name='plus'></box-icon> Adicionar
-           </button>
-       </div>
-   </li>
-       ` 
-    }   
+    if(equipes.length > 0){
+        for(let i = 0; i < equipes.length; i++){
+            listaDeEquipes.innerHTML += `
+                <li>
+                    <h4>${equipes[i].nome}</h4>
+                    <div>
+                        <h2>${equipes[i].participantes.length} <span>/ ${equipes[i].qtdMax}</span></h2>
+                        <div class='acoes'>
+                            <button onclick='modalAdicionar(${i})'>
+                                Adicionar
+                            </button>
+                            <button onClick='deletarEquipe(${i})'>
+                                <box-icon name='trash'></box-icon>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            `;
+        }
+    }else{
+        listaDeEquipes.innerHTML = `
+            <li class='sem-equipes'>Crie sua primeira equipe!</li>
+        `;
+    }
 }
 
+listarEquipes();
 
-
-function criarEquipe (){
+function criarEquipe(){
     event.preventDefault();
     let equipeNome = document.querySelector('#equipe-nome');
     let equipeQtd = document.querySelector('#equipe-qtd');
-      equipes.push(
-          {
+    equipes.push(
+        {
             nome: equipeNome.value,
             qtdMax: equipeQtd.value,
-            participantes: 0,
-          }
+            participantes: []
+        }
     );
-      
+    if(!localStorage.getItem('equipes')){
+        localStorage.setItem('equipes', JSON.stringify(equipes));
+    }else{
+        let equipesSalvas = JSON.parse(localStorage.getItem('equipes'));
+        equipesSalvas.push(
+            {
+                nome: equipeNome.value,
+                qtdMax: equipeQtd.value,
+                participantes: []
+            }
+        );
+        localStorage.setItem('equipes', JSON.stringify(equipesSalvas));
+    }
+    formCriar.reset();
+    overlay.classList.remove('active');
+    modal.classList.remove('active');
     listarEquipes();
 }
 
+function deletarEquipe(posicao){
+    let opcao = confirm('Deseja realmente apagar esta equipe?')
+    if (opcao) {
+              let equipesRestantes = [];
+    let equipesSalvas = JSON.parse(localStorage.getItem('equipes'));
+    for(let i = 0; i < equipes.length; i++){
+        if(i != posicao){
+            equipesRestantes.push(equipes[i]);
+        }
+    }
+    equipes = [];
+    equipes = equipesRestantes;
+    equipesSalvas = [];
+    equipesSalvas = equipesRestantes;
+    localStorage.setItem('equipes', JSON.stringify(equipesSalvas));
+    listarEquipes();
+    }
+
+}
+  
+function addPartipante(){
+        event.preventDefault();
+        let eId = document.querySelector('#equipeId');
+        let pNome = document.querySelector('#participante-nome');
+        
+        if(equipes[eId.value].participantes.length < equipes[eId.value].qtdMax){
+        equipes[eId.value].participantes.push(pNome.value);    
+        localStorage.setItem('equipes', JSON.stringify(equipes));
+        formAddParticipante.reset();
+        listarEquipes()
+        }  
+        else {
+            alert('Tamanho maximo atingido Otario')
+        };  
+    
+    }
