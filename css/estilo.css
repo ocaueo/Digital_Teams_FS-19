@@ -215,21 +215,18 @@ header .busca box-icon:hover{
     opacity: 0;
     visibility: hidden;
 }
-#modal.active,
-#modal2.active{
+#modal.active, #modal2.active{
     opacity: 1;
     visibility: visible;
     top: 50%;
 }
-#modal form h3,
-#modal2 form h3{
+#modal form h3, #modal2 form h3{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 16px;
 }
-#modal form h3 box-icon,
-#modal2 form h3 box-icon{
+#modal form h3 box-icon, #modal2 form h3 box-icon{
     fill: var(--light);
     width: 40px;
     height: 40px;
