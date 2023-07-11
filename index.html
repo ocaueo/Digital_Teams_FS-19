@@ -1,70 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Teams</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
     
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <link rel="stylesheet" href="css/estilo.css">
-        <title>Digital Teams</title>
-        
-    </head>
-    <body>
-    
-    
-        <header>
-        
-            <div class="logo">
-                <figure>
-                <img src="image/logo.webp" alt="Logo da Digital College">
-                </figure></div>
-            <div class="busca">
-                <input type="text" placeholder="Pesquisar Equipes">
-                <box-icon name='search'></box-icon>
-            </div>
-        
-        </header>
-        
-        
-        <main>
-            <section id="equipes">
-                <h3>Equipes
-                    <button id="btnCriarEquipe">
-                        <box-icon name='plus'></box-icon> Criar Equipe
-                    </button>
-                </h3>
-                <ul id="listaDeEquipes">
+    <header>
+        <div class="logo">
+            <figure>
+                <img src="images/logo.webp" alt="Logo da Digital College">
+            </figure>
+        </div>
+        <div class="busca">
+            <input type="text" placeholder="Pesquisar equipe">
+            <box-icon name='search'></box-icon>
+        </div>
+    </header>
 
-                </ul>
-            </section>
-        </main>
-        
-        
-        <div id="overlay"></div>
-        
-        <div id="modal">
-            <form id="formCriar" onsubmit="criarEquipe()">
-                <h3>Criar equipe <box-icon class="FecharForm" name='x'></box-icon> </h3>
-                <label for="equipe-nome">Nome</label>
-                <input type="text" id="equipe-nome" placeholder="Digite um nome" required>
-                <label for="equipe-qtd">N de participantes</label>
-                <input type="number" id="equipe-qtd" min="1" required>
-                <button type="submit">Criar</button>
-            </form>
-        </div>
-        
-        <div id="modal2">
-            <form id="formAddParticipante" onsubmit="addPartipante()">
-                <h3>Adicionar participante <box-icon class="FecharForm" name='x'></box-icon> </h3>
-                <input type="hidden" id="equipeId">
-                <label for="equipe-nome">Nome</label>
-                <input type="text" id="participante-nome" placeholder="Digite um nome" required>
-                <button type="submit">Criar</button>
-            </form>
-        </div>
-        
-        <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-        <script src="js/scripts.js"></script>
-    </body>
-    
+    <main>
+        <section id="equipes">
+            <h3>
+                Equipes
+                <button id="btnCriarEquipe">
+                    <box-icon name='plus'></box-icon> Criar Equipe
+                </button>
+            </h3>
+            <ul id="listaDeEquipes"></ul>
+        </section>
+    </main>
+
+    <div id="overlay"></div>
+
+    <div id="modal">
+        <form id="formCriar" onsubmit="criarEquipe()">
+            <h3>Criar equipe <box-icon class="fecharForm" name='x'></box-icon></h3>
+            <label for="equipe-nome">Nome</label>
+            <input type="text" id="equipe-nome" placeholder="Digite um nome" required>
+            <label for="equipe-qtd">Nº de participantes</label>
+            <input type="number" id="equipe-qtd" min="1" required>
+            <button type="submit">Criar</button>
+        </form>
+    </div>
+
+    <div id="modal2">
+        <form id="formAddParticipante" onsubmit="addParticipante()">
+            <h3>Adicionar participante <box-icon class="fecharForm" name='x'></box-icon></h3>
+            <input type="hidden" id="equipeId">
+            <label for="participante-nome">Nome</label>
+            <input type="text" id="participante-nome" placeholder="Digite um nome" required>
+            <button type="submit">Adicionar</button>
+        </form>
+    </div>
+
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
 </html>
