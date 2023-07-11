@@ -11,6 +11,14 @@ function modalAdicionar(posicao){
 
 let fecharForm = document.querySelectorAll('.fecharForm');
 for(let i = 0; i < fecharForm.length; i++){
+    fecharForm[i].onclick = function(){
+        overlay.classList.remove('active');
+        modal.classList.remove('active');
+        modal2.classList.remove('active');
+    }
+}
+
+overlay.onclick = function(){
     overlay.classList.remove('active');
     modal.classList.remove('active');
     modal2.classList.remove('active');
@@ -24,11 +32,11 @@ function listarEquipes(){
         for(let i = 0; i < equipes.length; i++){
             listaDeEquipes.innerHTML += `
                 <li>
-                    <h4>${equipes[i].nome}</h4>
+                    <h4>${equipes[i].nome}<box-icon name="home" onClick=""></box-icon></h4>
                     <div>
                         <h2>${equipes[i].participantes.length} <span>/ ${equipes[i].qtdMax}</span></h2>
                         <div class='acoes'>
-                            <button onclick='modalAdicionar(${i})'>
+                            <button onClick='modalAdicionar(${i})'>
                                 Adicionar
                             </button>
                             <button onClick='deletarEquipe(${i})'>
@@ -79,38 +87,36 @@ function criarEquipe(){
 }
 
 function deletarEquipe(posicao){
-    let opcao = confirm('Deseja realmente apagar esta equipe?')
-    if (opcao) {
-              let equipesRestantes = [];
-    let equipesSalvas = JSON.parse(localStorage.getItem('equipes'));
-    for(let i = 0; i < equipes.length; i++){
-        if(i != posicao){
-            equipesRestantes.push(equipes[i]);
+    let opcao = confirm("Deseja realmente apagar este item?");
+    if(opcao){
+        let equipesRestantes = [];
+        let equipesSalvas = JSON.parse(localStorage.getItem('equipes'));
+        for(let i = 0; i < equipes.length; i++){
+            if(i != posicao){
+                equipesRestantes.push(equipes[i]);
+            }
         }
+        equipes = [];
+        equipes = equipesRestantes;
+        equipesSalvas = [];
+        equipesSalvas = equipesRestantes;
+        localStorage.setItem('equipes', JSON.stringify(equipesSalvas));
+        listarEquipes();
     }
-    equipes = [];
-    equipes = equipesRestantes;
-    equipesSalvas = [];
-    equipesSalvas = equipesRestantes;
-    localStorage.setItem('equipes', JSON.stringify(equipesSalvas));
-    listarEquipes();
-    }
-
 }
-  
-function addPartipante(){
-        event.preventDefault();
-        let eId = document.querySelector('#equipeId');
-        let pNome = document.querySelector('#participante-nome');
-        
-        if(equipes[eId.value].participantes.length < equipes[eId.value].qtdMax){
-        equipes[eId.value].participantes.push(pNome.value);    
+
+function addParticipante(){
+    event.preventDefault();
+    let eId = document.querySelector('#equipeId');
+    let pNome = document.querySelector('#participante-nome');
+
+    if(equipes[eId.value].participantes.length < equipes[eId.value].qtdMax){
+        equipes[eId.value].participantes.push(pNome.value);
         localStorage.setItem('equipes', JSON.stringify(equipes));
         formAddParticipante.reset();
         listarEquipes()
-        }  
-        else {
-            alert('Tamanho maximo atingido Otario')
-        };  
-    
+    }else{
+        alert('Esta equipe já está completa');
     }
+
+}
